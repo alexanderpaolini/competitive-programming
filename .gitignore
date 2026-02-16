@@ -2,3 +2,8 @@
 .vscode
 .DS_Store
 a.out
+in
+*in.*
+*.in*
+*.out*
+*out.*
