@@ -30,11 +30,14 @@ int main() {
   vector<ll> dp(1e6 + 1, 0);
 
   dp[0] = 1;
-  rep(i, 0, n) cin >> coins[i];
+  rep(i, 0, n) {
+    cin >> coins[i];
+  }
 
-  for (int i = 0; i <= x; i++) {
-    for (int c : coins) {
-      if (i - c >= 0) {
+  for (int c : coins) {
+    dp[c]++;
+    for (int i = 0; i <= x; i++) {
+      if (i - c > 0) {
         dp[i] = (dp[i] + dp[i - c]) % MODVAL;
       }
     }
@@ -44,3 +47,13 @@ int main() {
 
   return 0;
 }
+
+// 1 - 0
+// 2 - 1
+// 3 - 1
+// 4 - 1
+// 5 - 2
+// 6 - 2
+// 7 - 2
+// 8 - 3
+// 9 - 1 + 2 = 3
